@@ -10,13 +10,13 @@ WebCrypto.
 ## Install
 
 ```bash
-npm install @robase/sdk
+npm install @robasedev/sdk
 ```
 
 ## Quick start
 
 ```ts
-import { Robase } from '@robase/sdk';
+import { Robase } from '@robasedev/sdk';
 
 const robase = new Robase({ apiKey: process.env.ROBASE_API_KEY });
 
@@ -33,7 +33,7 @@ if (result.valid) {
 CommonJS works too:
 
 ```js
-const { Robase } = require('@robase/sdk');
+const { Robase } = require('@robasedev/sdk');
 ```
 
 Field names mirror the wire format exactly — `snake_case` in and out. There's no
@@ -86,7 +86,7 @@ A wrong-but-not-yet-exhausted code is **not** an error — `verify` resolves wit
 `valid: false` and `attempts_remaining` set:
 
 ```ts
-import { ConflictError } from '@robase/sdk';
+import { ConflictError } from '@robasedev/sdk';
 
 try {
   const result = await robase.otp.verify({ otp_id, code });
@@ -128,7 +128,7 @@ Every non-2xx response throws a subclass of `RobaseError`. Match on the class, o
 on `error.type` for finer-grained cases:
 
 ```ts
-import { InsufficientCreditsError, isRobaseError } from '@robase/sdk';
+import { InsufficientCreditsError, isRobaseError } from '@robasedev/sdk';
 
 try {
   await robase.otp.send({ phone_number });
@@ -177,7 +177,7 @@ WebCrypto, which works in every modern runtime.
 
 ```ts
 import express from 'express';
-import { parseWebhook, SignatureVerificationError } from '@robase/sdk';
+import { parseWebhook, SignatureVerificationError } from '@robasedev/sdk';
 
 const app = express();
 

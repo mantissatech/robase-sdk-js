@@ -1,5 +1,5 @@
 {
-  "name": "@robase/sdk",
+  "name": "@robasedev/sdk",
   "version": "1.0.0",
   "description": "Official JavaScript/TypeScript client for the Robase SMS OTP and transactional SMS API",
   "license": "MIT",
