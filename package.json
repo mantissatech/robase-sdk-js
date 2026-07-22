@@ -1,0 +1,60 @@
+{
+  "name": "@robase/sdk",
+  "version": "1.0.0",
+  "description": "Official JavaScript/TypeScript client for the Robase SMS OTP and transactional SMS API",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mantissatech/robase-sdk-js.git"
+  },
+  "homepage": "https://robase.dev",
+  "bugs": {
+    "url": "https://github.com/mantissatech/robase-sdk-js/issues"
+  },
+  "keywords": [
+    "robase",
+    "sms",
+    "otp",
+    "2fa",
+    "verification",
+    "transactional-sms",
+    "africa"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test 'test/*.test.ts'",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.9.0"
+  }
+}
