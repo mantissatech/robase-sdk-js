@@ -76,6 +76,7 @@ await robase.sms.send(params, {
 ```ts
 const sent = await robase.otp.send({
   phone_number: '+2348012345678',  // required, E.164
+  code: '908172',                  // optional, 4 to 8 digits; omit to generate
   code_length: 6,                  // optional, 4–8, defaults to 6
   ttl_seconds: 600,                // optional, ≤3600, defaults to 600
   metadata: { user_id: 'u_123' },

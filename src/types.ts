@@ -13,6 +13,8 @@ export const MAX_MESSAGE_LENGTH = 918;
 export interface SendOTPParams {
   /** Destination in E.164 format, e.g. `+2348012345678`. */
   phone_number: string;
+  /** Optional 4 to 8 digit code. Omit to let Robase generate one. */
+  code?: string;
   /** Digits in the generated code, 4–8. Defaults to 6. */
   code_length?: number;
   /** How long the code stays valid, in seconds, up to 3600. Defaults to 600. */
