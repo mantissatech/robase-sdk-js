@@ -224,6 +224,7 @@ describe('request bodies', () => {
     const { client, requests } = stubClient({ body: {} });
     await client.otp.send({
       phone_number: '+2348012345678',
+      code: '9081',
       code_length: 4,
       ttl_seconds: 300,
       metadata: { user_id: 'u_1' },
@@ -231,6 +232,7 @@ describe('request bodies', () => {
 
     assert.deepEqual(requests[0]!.body, {
       phone_number: '+2348012345678',
+      code: '9081',
       code_length: 4,
       ttl_seconds: 300,
       metadata: { user_id: 'u_1' },
